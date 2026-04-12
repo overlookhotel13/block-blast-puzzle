@@ -1,0 +1,55 @@
+## pubspec.yaml
+## Block Blast Puzzle - Flutter/Flame mobile puzzle game
+## Package configuration, dependencies, and asset declarations
+
+name: block_blast_puzzle
+description: A grid-based block puzzle game for Android and iOS.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Core game engine
+  flame: ^1.17.0
+
+  # Ads monetization
+  # TODO: Replace test IDs with real AdMob IDs before release
+  google_mobile_ads: ^5.1.0
+
+  # Persistent local storage
+  shared_preferences: ^2.3.0
+
+  # Audio playback (SFX + music)
+  audioplayers: ^6.0.0
+
+  # Google Fonts for Nunito typeface
+  google_fonts: ^6.2.1
+
+  # State management
+  provider: ^6.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/audio/
+    - assets/images/
+
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito-Regular.ttf
+        - asset: assets/fonts/Nunito-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Nunito-ExtraBold.ttf
+          weight: 800

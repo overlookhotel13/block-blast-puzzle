@@ -1,0 +1,80 @@
+// android/app/build.gradle
+// Android module build configuration for Block Blast Puzzle.
+// Sets SDK versions, enables multidex, and applies required plugins.
+
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // Flutter plugin — must be last
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0'
+}
+
+android {
+    namespace "com.yourstudio.blockblast"
+    compileSdk 34
+    ndkVersion flutter.ndkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        applicationId "com.yourstudio.blockblast"
+
+        // Minimum Android version (Android 5.0 Lollipop)
+        minSdkVersion 21
+        targetSdkVersion 34
+
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+
+        // Required when using many dependencies (>65k methods)
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            // TODO: Replace signingConfig with your real keystore before uploading to Play Store
+            signingConfig signingConfigs.debug
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+flutter {
+    source '../..'
+}
+
+dependencies {
+    // Multidex support for API < 21 (not needed with minSdk 21 but kept for safety)
+    implementation 'androidx.multidex:multidex:2.0.1'
+}
