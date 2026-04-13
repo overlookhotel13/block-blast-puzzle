@@ -9,7 +9,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../game/block_puzzle_game.dart';
 import '../game/game_state.dart';
-import '../models/player_data.dart';
 import '../services/audio_service.dart';
 import '../utils/constants.dart';
 import '../utils/helpers.dart';

@@ -111,7 +111,7 @@ class PlayerData {
   int get derivedLevel => levelFromScore(totalScore);
 
   /// Progress towards the next level [0.0 – 1.0].
-  double get levelProgress => levelProgress(totalScore);
+  double get levelProgressFraction => levelProgress(totalScore);
 
   /// Returns a copy of this [PlayerData] with the given fields replaced.
   PlayerData copyWith({

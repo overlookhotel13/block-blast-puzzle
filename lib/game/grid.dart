@@ -8,6 +8,7 @@
 ///   - Return the number of cleared cells and lines for scoring
 
 import 'dart:ui';
+import 'package:flutter/painting.dart' show HSLColor;
 import 'package:flame/components.dart';
 import '../models/block_shape.dart';
 import '../utils/constants.dart';

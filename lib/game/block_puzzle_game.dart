@@ -209,9 +209,9 @@ class BlockPuzzleGame extends FlameGame with DragCallbacks {
       canvas.translate(originX, originY);
 
       final paint = Paint()
-        ..color = piece.color.withOpacity(alpha);
+        ..color = piece.color.withValues(alpha: alpha);
       final shadowPaint = Paint()
-        ..color = _darkenColor(piece.color, 0.25).withOpacity(alpha);
+        ..color = _darkenColor(piece.color, 0.25).withValues(alpha: alpha);
 
       for (final cell in piece.shape.cells) {
         final x = cell[1] * trayCell;
@@ -264,7 +264,7 @@ class BlockPuzzleGame extends FlameGame with DragCallbacks {
   void onDragUpdate(DragUpdateEvent event) {
     if (_draggedPiece == null) return;
 
-    _dragPos.add(event.delta);
+    _dragPos.add(event.canvasDelta);
 
     // Convert to grid cell (offset upward from finger)
     final ghostY = _dragPos.y - kDragFingerYOffset;

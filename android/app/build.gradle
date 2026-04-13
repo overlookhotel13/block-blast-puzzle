@@ -4,9 +4,8 @@
 
 plugins {
     id "com.android.application"
-    id "kotlin-android"
-    // Flutter plugin — must be last
     id "dev.flutter.flutter-gradle-plugin"
+    id "org.jetbrains.kotlin.android"
 }
 
 def localProperties = new Properties()
@@ -29,7 +28,7 @@ if (flutterVersionName == null) {
 
 android {
     namespace "com.yourstudio.blockblast"
-    compileSdk 34
+    compileSdk 35
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -48,9 +47,9 @@ android {
     defaultConfig {
         applicationId "com.yourstudio.blockblast"
 
-        // Minimum Android version (Android 5.0 Lollipop)
-        minSdkVersion 21
-        targetSdkVersion 34
+        // Minimum Android version (Android 5.0 Lollipop) — required by audioplayers & google_mobile_ads
+        minSdkVersion flutter.minSdkVersion
+        targetSdkVersion 35
 
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

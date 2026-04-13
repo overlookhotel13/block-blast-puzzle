@@ -9,7 +9,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../game/game_state.dart';
 import '../models/player_data.dart';
-import '../services/ad_service.dart';
 import '../services/analytics_service.dart';
 import '../utils/constants.dart';
 import 'ad_reward_dialog.dart';
@@ -76,7 +75,7 @@ class _PowerUpButton extends StatelessWidget {
         height: 72,
         decoration: BoxDecoration(
           color: isActive
-              ? Colors.yellowAccent.withOpacity(0.15)
+              ? Colors.yellowAccent.withValues(alpha: 0.15)
               : kColorSurface,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: borderColor, width: isActive ? 2.5 : 1.5),

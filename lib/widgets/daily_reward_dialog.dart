@@ -9,7 +9,6 @@ import '../models/daily_reward.dart';
 import '../services/storage_service.dart';
 import '../services/analytics_service.dart';
 import '../utils/constants.dart';
-import '../utils/helpers.dart';
 
 /// Dialog that shows the 7-day daily reward calendar.
 /// Pass [onCoinsGranted] to be notified of the coin amount awarded.
@@ -222,15 +221,15 @@ class _DayTile extends StatelessWidget {
     Widget badge;
 
     if (entry.claimed) {
-      bg = Colors.green.withOpacity(0.2);
+      bg = Colors.green.withValues(alpha: 0.2);
       textColor = Colors.green;
       badge = const Icon(Icons.check, color: Colors.green, size: 14);
     } else if (entry.isToday) {
-      bg = Colors.amber.withOpacity(0.25);
+      bg = Colors.amber.withValues(alpha: 0.25);
       textColor = Colors.amber;
       badge = const Icon(Icons.star, color: Colors.amber, size: 14);
     } else {
-      bg = kColorAccent.withOpacity(0.3);
+      bg = kColorAccent.withValues(alpha: 0.3);
       textColor = kColorTextSecondary;
       badge = const SizedBox.shrink();
     }

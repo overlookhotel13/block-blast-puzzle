@@ -207,7 +207,7 @@ class _ToggleTile extends StatelessWidget {
           ),
         ),
         secondary: Icon(icon, color: kColorTextSecondary),
-        activeColor: kBlockColors[1],
+        activeThumbColor: kBlockColors[1],
       ),
     );
   }
